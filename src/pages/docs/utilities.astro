@@ -1,0 +1,90 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+
+const variablesExample = `// Breakpoints
+$mobile:  640px
+$tablet:  768px
+$desktop: 1024px
+
+// Colors
+$color-bg:   #0F172A
+$color-text: #F8FAFC
+
+// Spacing
+$spacing-sm: 0.5rem
+$spacing-md: 1rem
+$spacing-lg: 2rem`;
+
+const mixinsExample = `@use 'variables' as *
+
+=mobile
+  @media (max-width: $tablet - 1px)
+    @content
+
+=tablet
+  @media (min-width: $tablet)
+    @content
+
+=desktop
+  @media (min-width: $desktop)
+    @content`;
+
+const usageExample = `@use '../utilities' as *
+
+.navbar
+  background: $color-bg
+  padding: $spacing-md
+
+  +mobile
+    padding: $spacing-sm`;
+---
+
+<DocsLayout
+  title="Utilities"
+  description="Variables and mixins that power the rest of your stylesheets."
+>
+  <div class="docs-article__header">
+    <h1 class="docs-article__title gradient-text">Utilities</h1>
+    <p class="docs-article__description">
+      Variables and mixins that power the rest of your stylesheets.
+    </p>
+  </div>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">Purpose</h2>
+    <p>
+      The <code>utilities/</code> directory contains Sass tools — variables and mixins —
+      that produce no CSS output on their own. They must be <code>@use</code>'d in other
+      files to take effect.
+    </p>
+    <p>
+      Think of this directory as your project's design tokens and shared logic.
+      Every other directory imports from here.
+    </p>
+  </section>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">_variables.sass</h2>
+    <p>
+      Centralizes all design tokens: colors, spacing scale, typography, shadows.
+      Changing a value here propagates across the entire project.
+    </p>
+    <CodeBlock code={variablesExample} label="utilities/_variables.sass" />
+  </section>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">_mixins.sass</h2>
+    <p>
+      Reusable Sass mixins for patterns you repeat across components and views.
+      Keep them generic — no mixin should be tied to a specific component.
+    </p>
+    <CodeBlock code={mixinsExample} label="utilities/_mixins.sass" />
+  </section>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">Usage</h2>
+    <p>Import utilities at the top of any file that needs them:</p>
+    <CodeBlock code={usageExample} label="components/_navbar.sass" />
+  </section>
+</DocsLayout>

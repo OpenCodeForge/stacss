@@ -1,0 +1,85 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+
+const scopingExample = `body.dashboard
+  .header
+    font-size: 1.5rem
+
+  .stats
+    display: grid
+    gap: 1rem
+
+body.dashboard-index
+  .stats
+    grid-template-columns: repeat(3, 1fr)`;
+
+const railsLayout = `<body class="<%= controller_name %>
+             <%= controller_name %>-<%= action_name %>">`;
+
+const railsResult = `<body class="dashboard dashboard-index">`;
+---
+
+<DocsLayout
+  title="Views"
+  description="Styles specific to individual pages or screens."
+>
+  <div class="docs-article__header">
+    <h1 class="docs-article__title gradient-text">Views</h1>
+    <p class="docs-article__description">
+      Styles specific to individual pages or screens.
+    </p>
+  </div>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">Purpose</h2>
+    <p>
+      The <code>views/</code> directory contains styles that apply to a single page or screen.
+      If a style is only used in one place, it belongs here — not in <code>components/</code>.
+    </p>
+    <p>
+      <strong>STACSS strongly recommends keeping view-specific styles in a dedicated folder,
+      separate from reusable components.</strong> Mixing the two leads to bloated component
+      files and hard-to-track specificity issues.
+    </p>
+  </section>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">Scoping with body class</h2>
+    <p>
+      Each view file should open with a scoped selector tied to that page.
+      The recommended pattern is a class on <code>&lt;body&gt;</code>:
+    </p>
+    <CodeBlock code={scopingExample} label="views/_dashboard.sass" />
+    <p>
+      <code>body.dashboard</code> scopes styles to all dashboard pages, regardless of the action.
+      <code>body.dashboard-index</code> adds a more specific layer that only applies to the index action.
+      The two levels can be combined freely — there is no risk of collision with a component
+      or another view that happens to use the same class name.
+    </p>
+
+    <h3>Adding the body class</h3>
+    <p>
+      Most frameworks make it straightforward to add a page-specific class to <code>&lt;body&gt;</code>.
+      In Ruby on Rails, controller and action names are available directly in the layout:
+    </p>
+    <div class="code-block" style="margin: 1.25rem 0;">
+      <div class="code-block__header">
+        <span class="code-block__label">application.html.erb</span>
+      </div>
+      <div class="naming-block__part">
+        <span class="naming-block__lang">ERB</span>
+        <pre><code set:text={railsLayout}></code></pre>
+      </div>
+      <div class="naming-block__part">
+        <span class="naming-block__lang">HTML</span>
+        <pre><code set:text={railsResult}></code></pre>
+      </div>
+    </div>
+    <p>
+      In Next.js or Astro, pass a <code>bodyClass</code> prop to your layout component
+      and apply it to the <code>&lt;body&gt;</code> tag manually.
+    </p>
+  </section>
+
+</DocsLayout>

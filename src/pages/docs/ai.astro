@@ -1,0 +1,47 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+
+const promptMinimal = `Create a navbar component.
+Follow the STACSS convention: https://stacss.dev`;
+---
+
+<DocsLayout
+  title="Working with AI"
+  description="How STACSS is designed to work seamlessly with AI coding assistants."
+>
+  <div class="docs-article__header">
+    <h1 class="docs-article__title gradient-text">Working with AI</h1>
+    <p class="docs-article__description">
+      How STACSS is designed to work seamlessly with AI coding assistants.
+    </p>
+  </div>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">One reference, no repetition</h2>
+    <p>
+      STACSS is designed to be self-sufficient as a reference. Mentioning the convention
+      by name and URL in a prompt is enough — the AI reads the documentation, understands
+      the structure, and applies the rules without further explanation.
+    </p>
+    <p>This is all you need:</p>
+
+    <CodeBlock code={promptMinimal} label="Prompt" />
+
+    <p>It automatically applies the full convention:</p>
+    <dl class="convention-list">
+      <dt><a href="/docs/naming-conventions">Naming conventions</a></dt>
+      <dd>Simple <code>.navbar</code> class — no verbose BEM selectors</dd>
+
+      <dt><a href="/docs/file-structure">File structure</a></dt>
+      <dd>Styles placed in <code>components/_navbar.sass</code></dd>
+
+      <dt><a href="/docs/utilities">Utilities</a></dt>
+      <dd>Variables placed in <code>utilities/_variables.sass</code></dd>
+
+      <dt><a href="/docs/components">Components</a></dt>
+      <dd>Component kept free of page-specific styles</dd>
+    </dl>
+    <p>No need to re-explain the convention on every request.</p>
+  </section>
+</DocsLayout>

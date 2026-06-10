@@ -1,0 +1,42 @@
+---
+import Layout from './Layout.astro';
+import DocsSidebar from '../components/DocsSidebar.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
+---
+
+<Layout title={`${title} — STACSS`} description={description}>
+  <div class="docs-page">
+    <DocsSidebar currentPath={currentPath} />
+    <article class="docs-article">
+      <slot />
+    </article>
+  </div>
+</Layout>
+
+<script>
+  document.querySelectorAll('.docs-section__title').forEach(heading => {
+    const slug = heading.textContent
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-');
+
+    heading.id = slug;
+
+    const link = document.createElement('a');
+    link.href = `#${slug}`;
+    link.className = 'heading-anchor';
+
+    while (heading.firstChild) {
+      link.appendChild(heading.firstChild);
+    }
+    heading.appendChild(link);
+  });
+</script>

@@ -1,0 +1,22 @@
+---
+---
+
+<nav class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="/" class="navbar__logo">STACSS</a>
+    <div class="navbar__links">
+      <a href="/docs" class="navbar__link">Documentation</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const onScroll = () => {
+    if (navbar) {
+      navbar.classList.toggle('scrolled', window.scrollY > 10);
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>

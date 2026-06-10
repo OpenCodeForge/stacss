@@ -1,0 +1,64 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Introduction"
+  description="What is STACSS and why it exists."
+>
+  <div class="docs-article__header">
+    <h1 class="docs-article__title gradient-text">Introduction</h1>
+    <p class="docs-article__description">
+      A lightweight CSS architecture convention for modern web applications.
+    </p>
+  </div>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">What is STACSS?</h2>
+    <p>
+      STACSS is a CSS architecture convention. It defines where to put your stylesheets
+      and how to name them — nothing more.
+    </p>
+    <p>
+      There is no tooling to install and no configuration to write. STACSS is a shared
+      vocabulary that any developer can understand in minutes and apply to any project or framework.
+    </p>
+    <blockquote>
+      <p>Not a framework. Not a library. Just a convention.</p>
+    </blockquote>
+  </section>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">Recommended structure</h2>
+    <p class="docs-section__lead">
+      STACSS organizes stylesheets into five directories, each with a clear purpose.
+    </p>
+
+    <div class="dir-grid">
+      <a href="/docs/utilities" class="dir-card">
+        <div class="dir-card__name">utilities/</div>
+        <div class="dir-card__desc">Variables and mixins. No CSS output on their own.</div>
+      </a>
+      <a href="/docs/base" class="dir-card">
+        <div class="dir-card__name">base/</div>
+        <div class="dir-card__desc">Resets, fonts, and themes. Applied once across the whole app.</div>
+      </a>
+      <a href="/docs/components" class="dir-card">
+        <div class="dir-card__name">components/</div>
+        <div class="dir-card__desc">Reusable UI elements shared across multiple views.</div>
+      </a>
+      <a href="/docs/views" class="dir-card">
+        <div class="dir-card__name">views/</div>
+        <div class="dir-card__desc">Styles specific to individual pages or screens. Not shared elsewhere.</div>
+      </a>
+      <a href="/docs/helpers" class="dir-card">
+        <div class="dir-card__name">helpers/</div>
+        <div class="dir-card__desc">Single-purpose utility classes used directly in HTML.</div>
+      </a>
+    </div>
+
+    <p>
+      See <a href="/docs/file-structure">File Structure</a> for the full example and advice on adapting this layout to your framework.
+    </p>
+  </section>
+</DocsLayout>

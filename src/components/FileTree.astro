@@ -1,0 +1,54 @@
+---
+const folders = [
+  { name: 'utilities/',  color: '#38BDF8', comment: 'variables & mixins',              href: '/docs/utilities' },
+  { name: 'base/',       color: '#34D399', comment: 'reset, fonts, themes',            href: '/docs/base' },
+  { name: 'components/', color: '#818CF8', comment: 'reusable UI elements',            href: '/docs/components' },
+  { name: 'views/',      color: '#EC4899', comment: 'page-specific styles',            href: '/docs/views' },
+  { name: 'helpers/',    color: '#FB923C', comment: 'utility classes (.mr-3, .flex…)', href: '/docs/helpers' },
+];
+---
+
+<div class="file-tree-wrapper">
+  <div class="container">
+    <div class="file-tree">
+      <div class="file-tree__titlebar">
+        <span class="file-tree__dot file-tree__dot--red"></span>
+        <span class="file-tree__dot file-tree__dot--yellow"></span>
+        <span class="file-tree__dot file-tree__dot--green"></span>
+        <span class="file-tree__title">Recommended Structure</span>
+      </div>
+      <div class="file-tree__body">
+        <div class="file-tree__root">
+          <svg width="15" height="13" viewBox="0 0 15 13" fill="currentColor" aria-hidden="true">
+            <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1H5a.5.5 0 0 1 .354.146L6.56 2.354A.5.5 0 0 0 6.914 2.5H13.5A1.5 1.5 0 0 1 15 4v7a1.5 1.5 0 0 1-1.5 1.5h-12A1.5 1.5 0 0 1 0 11V2.5z"/>
+          </svg>
+          styles/
+        </div>
+        <ul class="file-tree__list">
+          {folders.map((folder, i) => {
+            const isLast = i === folders.length - 1;
+            return (
+              <li>
+                <a class="file-tree__item" href={folder.href}>
+                  <span class="file-tree__connector">{isLast ? '└──' : '├──'}</span>
+                  <svg
+                    class="file-tree__folder-icon"
+                    style={`color: ${folder.color}`}
+                    width="15" height="13" viewBox="0 0 15 13"
+                    fill="currentColor" aria-hidden="true"
+                  >
+                    <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1H5a.5.5 0 0 1 .354.146L6.56 2.354A.5.5 0 0 0 6.914 2.5H13.5A1.5 1.5 0 0 1 15 4v7a1.5 1.5 0 0 1-1.5 1.5h-12A1.5 1.5 0 0 1 0 11V2.5z"/>
+                  </svg>
+                  <span class="file-tree__folder-name">
+                    {folder.name}
+                  </span>
+                  <span class="file-tree__comment">{folder.comment}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

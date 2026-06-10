@@ -1,0 +1,157 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+
+const fullTree = `styles/
+├── utilities/
+│   ├── _variables.sass
+│   └── _mixins.sass
+│
+├── base/
+│   ├── _reset.sass
+│   ├── _fonts.sass
+│   └── _themes.sass
+│
+├── components/
+│   ├── _navbar.sass
+│   ├── _button.sass
+│   ├── _form.sass
+│   └── _dropdown.sass
+│
+├── views/
+│   ├── _application.sass
+│   ├── _dashboard.sass
+│   └── _projects.sass
+│
+└── helpers/
+    ├── _spacing.sass
+    └── _flex.sass`;
+
+const railsTree = `views/
+├── _application.sass
+├── _dashboard.sass
+└── _projects.sass`;
+
+const nextTree = `pages/
+├── _layout.sass
+├── _home.sass
+└── _dashboard.sass`;
+
+const entryPoint = `@use 'base'
+@use 'components'
+@use 'views'
+@use 'helpers'`;
+
+
+
+const indexComponents = `@forward 'navbar'
+@forward 'button'
+@forward 'form'
+@forward 'dropdown'`;
+
+---
+
+<DocsLayout
+  title="File Structure"
+  description="How to adapt the STACSS structure to your framework and scope view-specific styles."
+>
+  <div class="docs-article__header">
+    <h1 class="docs-article__title gradient-text">File Structure</h1>
+    <p class="docs-article__description">
+      How to adapt the structure to your framework and scope view-specific styles.
+    </p>
+  </div>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">In practice</h2>
+    <p>
+      Here is a typical STACSS project. The files shown are examples —
+      add or remove them based on your needs.
+    </p>
+    <CodeBlock code={fullTree} label="Example structure" />
+
+    <p>
+      Each directory has a specific role and files are loaded in a deliberate order.
+      Refer to the <a href="/docs/utilities">Reference</a> pages for each directory
+      to make sure you place your files in the right location.
+    </p>
+    <ul>
+      <li>
+        <a href="/docs/utilities"><code>utilities/</code></a> — loaded on demand via <code>@use</code>.
+        These files produce no CSS output on their own and are only included where explicitly imported.
+      </li>
+      <li>
+        <a href="/docs/base"><code>base/</code></a> — loaded first, before everything else.
+        This is where fonts are declared, CSS custom properties defined, and the global theme established.
+        Everything else depends on what is set here.
+      </li>
+      <li>
+        <a href="/docs/components"><code>components/</code></a> — loaded after base styles.
+        Components can safely rely on theme variables and the reset being in place.
+      </li>
+      <li>
+        <a href="/docs/views"><code>views/</code></a> — loaded after components.
+        View styles can override component styles for a specific page without affecting the rest of the app.
+      </li>
+      <li>
+        <a href="/docs/helpers"><code>helpers/</code></a> — loaded last, intentionally.
+        Helper classes override all previous styles, which is exactly the point: they allow you to
+        adjust an element's behaviour directly in HTML without writing new CSS.
+      </li>
+    </ul>
+  </section>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">Entry point</h2>
+    <p>
+      By convention, all files intended to be imported are prefixed with an underscore
+      (<code>_navbar.sass</code>, <code>_reset.sass</code>, etc.). This signals that
+      they should never be compiled directly — only imported by another file.
+    </p>
+    <p>
+      Your project's main stylesheet loads each directory in order. Note that
+      <code>utilities/</code> is not included here — it produces no CSS output
+      and is loaded on demand by each file that needs it via <code>@use</code>.
+    </p>
+    <CodeBlock code={entryPoint} label="styles.sass" />
+    <p>
+      <code>utilities/</code> is intentionally absent — it produces no CSS output and is
+      loaded on demand by each file that needs it. See the <a href="/docs/utilities">Utilities</a> section.
+    </p>
+
+    <h3>Index files</h3>
+    <p>
+      It is recommended to add an <code>_index.sass</code> inside each directory.
+      It acts as a single entry point for the folder, making imports cleaner and
+      easier to maintain.
+    </p>
+    <CodeBlock code={indexComponents} label="components/_index.sass" />
+    <p>
+      With this pattern, <code>@use 'components'</code> in the entry point
+      automatically loads all forwarded files in the right order.
+    </p>
+  </section>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">Adaptability</h2>
+    <p>
+      STACSS provides principles rather than strict rules. The proposed structure
+      should be adapted to the framework you are using.
+    </p>
+    <p>
+      In a Ruby on Rails project, naming your stylesheet folder <code>views/</code>
+      feels natural because it mirrors Rails conventions:
+    </p>
+    <CodeBlock code={railsTree} label="Ruby on Rails" />
+    <p>
+      Conversely, in a Next.js project where <code>pages/</code> is a core concept,
+      that name is more intuitive than <code>views/</code>:
+    </p>
+    <CodeBlock code={nextTree} label="Next.js" />
+    <p>Always prefer names that match your framework's vocabulary.</p>
+    <blockquote>
+      <p>STACSS defines conventions and principles, not rigid rules.</p>
+    </blockquote>
+  </section>
+
+</DocsLayout>

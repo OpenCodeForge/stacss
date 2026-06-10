@@ -1,0 +1,74 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+
+const buttonExample = `@use '../utilities' as *
+
+.btn
+  display: inline-flex
+  align-items: center
+  padding: 0.6rem 1.25rem
+  border-radius: 8px
+  font-weight: 600
+  cursor: pointer
+  transition: opacity 0.15s ease
+
+.btn-primary
+  background: $color-text
+  color: $color-bg
+
+  &:hover
+    opacity: 0.9
+
+.btn-secondary
+  border: 1px solid currentColor
+  color: $color-text
+
+  &:hover
+    opacity: 0.7`;
+---
+
+<DocsLayout
+  title="Components"
+  description="Reusable UI elements shared across multiple views."
+>
+  <div class="docs-article__header">
+    <h1 class="docs-article__title gradient-text">Components</h1>
+    <p class="docs-article__description">
+      Reusable UI elements shared across multiple views.
+    </p>
+  </div>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">Purpose</h2>
+    <p>
+      The <code>components/</code> directory contains styles for UI elements that appear
+      on more than one page. A button, a navbar, a form input, a modal — these all belong here.
+    </p>
+    <p>
+      If a style only applies to a single page, it belongs in <a href="/docs/views"><code>views/</code></a>, not here.
+    </p>
+  </section>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">What belongs here</h2>
+    <ul>
+      <li>Buttons and links</li>
+      <li>Navigation bars and menus</li>
+      <li>Forms, inputs, selects</li>
+      <li>Cards and panels</li>
+      <li>Modals and overlays</li>
+      <li>Badges, tags and labels</li>
+    </ul>
+    <p>
+      One file per component. Keep each file focused — <code>_button.sass</code> should
+      only contain button styles.
+    </p>
+  </section>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">Example</h2>
+    <CodeBlock code={buttonExample} label="components/_button.sass" />
+  </section>
+
+</DocsLayout>

@@ -1,0 +1,135 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+
+const spacingCss = `$sizes: (1: 0.25rem, 2: 0.5rem, 3: 0.75rem, 4: 1rem)
+
+@each $key, $value in $sizes
+  .mr-#{$key}
+    margin-right: $value
+  .mt-#{$key}
+    margin-top: $value
+  .gap-#{$key}
+    gap: $value`;
+
+const spacingHtml = `<div>
+  <span class="mr-2">Label</span>
+  <button class="mt-4">Submit</button>
+</div>`;
+
+const flexCss = `.flex            { display: flex }
+.flex-1          { flex: 1 }
+.items-center    { align-items: center }
+.justify-between { justify-content: space-between }`;
+
+const flexHtml = `<div class="flex items-center justify-between gap-2">
+  <div>Left</div>
+  <div class="flex-1"></div>
+  <div>Right</div>
+</div>`;
+
+const gridCss = `.grid          { display: grid }
+.grid-cols-2   { grid-template-columns: repeat(2, 1fr) }
+.grid-cols-3   { grid-template-columns: repeat(3, 1fr) }`;
+
+const gridHtml = `<div class="grid grid-cols-3 gap-3">
+  <div>Col 1</div>
+  <div>Col 2</div>
+  <div>Col 3</div>
+</div>`;
+---
+
+<DocsLayout
+  title="Helpers"
+  description="Single-purpose utility classes used directly in HTML."
+>
+  <div class="docs-article__header">
+    <h1 class="docs-article__title gradient-text">Helpers</h1>
+    <p class="docs-article__description">
+      Single-purpose utility classes used directly in HTML.
+    </p>
+  </div>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">Purpose</h2>
+    <p>
+      The <code>helpers/</code> directory contains small, single-purpose CSS classes
+      applied directly in HTML. Unlike components, helpers are not tied to any specific
+      UI element — they handle generic concerns like spacing, display, or layout.
+    </p>
+  </section>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">Examples</h2>
+
+    <h3>_spacing.sass</h3>
+    <p>Margin and padding utilities based on a consistent numeric scale.</p>
+    <div class="code-block">
+      <div class="code-block__header">
+        <span class="code-block__label">helpers/_spacing.sass</span>
+      </div>
+      <div class="naming-block__part">
+        <pre><code set:text={spacingCss}></code></pre>
+      </div>
+      <div class="naming-block__part">
+        <span class="naming-block__lang">Usage</span>
+        <pre><code set:text={spacingHtml}></code></pre>
+      </div>
+    </div>
+
+    <p>
+      This is just a starting point. Define the classes that make sense for your project —
+      add directions (<code>ml</code>, <code>mb</code>, <code>pb</code>…), adjust the scale,
+      or extend the map with any values you need.
+    </p>
+    <p>
+      Note that <code>gap</code> belongs in <code>_spacing.sass</code> rather than
+      <code>_flex.sass</code> or <code>_grid.sass</code>, since it is used by both
+      Flexbox and Grid layouts.
+    </p>
+
+    <h3>_flex.sass</h3>
+    <p>Flexbox shortcuts for common layout patterns.</p>
+    <div class="code-block">
+      <div class="code-block__header">
+        <span class="code-block__label">helpers/_flex.sass</span>
+      </div>
+      <div class="naming-block__part">
+        <pre><code set:text={flexCss}></code></pre>
+      </div>
+      <div class="naming-block__part">
+        <span class="naming-block__lang">Usage</span>
+        <pre><code set:text={flexHtml}></code></pre>
+      </div>
+    </div>
+
+    <h3>_grid.sass</h3>
+    <p>Grid layout helpers and spacing.</p>
+    <div class="code-block">
+      <div class="code-block__header">
+        <span class="code-block__label">helpers/_grid.sass</span>
+      </div>
+      <div class="naming-block__part">
+        <pre><code set:text={gridCss}></code></pre>
+      </div>
+      <div class="naming-block__part">
+        <span class="naming-block__lang">Usage</span>
+        <pre><code set:text={gridHtml}></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="docs-section">
+    <h2 class="docs-section__title">Guidelines</h2>
+    <p>Helpers should remain:</p>
+    <ul>
+      <li>Generic — not tied to a specific component or view</li>
+      <li>Small — single-purpose, a few lines each</li>
+      <li>Reusable — useful in multiple contexts</li>
+    </ul>
+    <p>
+      They should not become a full utility framework. If you find yourself writing
+      dozens of helpers, consider whether a library like Tailwind CSS would serve you better.
+    </p>
+  </section>
+</DocsLayout>

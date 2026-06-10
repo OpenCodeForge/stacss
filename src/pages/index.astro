@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FileTree from '../components/FileTree.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+---
+
+<Layout title="STACSS — Simple CSS architecture for humans and AI.">
+  <Hero />
+
+  <FileTree />
+
+  <div class="hero__actions hero__actions--standalone">
+    <a href="/docs" class="btn btn--primary">
+      Read the Documentation
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+
+  <section class="features">
+    <div class="container">
+      <div class="features__grid">
+        <FeatureCard
+          icon="◆"
+          title="Simplicity"
+          description="Four directories. No configuration. No tooling required. You can understand the entire convention in under a minute."
+        />
+        <FeatureCard
+          icon="⟳"
+          title="Reusability"
+          description="Clear separation between reusable components and view-specific styles prevents duplication and keeps your codebase clean."
+        />
+        <FeatureCard
+          icon="⌘"
+          title="AI Friendly"
+          description="Predictable conventions let AI tools generate correctly placed, consistently named styles without needing custom instructions every time."
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
