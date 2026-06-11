@@ -48,15 +48,15 @@ const themesExample = `:root
   title="Base"
   description="Global styles applied once across the entire application."
 >
-  <div class="docs-article__header">
-    <h1 class="docs-article__title gradient-text">Base</h1>
-    <p class="docs-article__description">
+  <header>
+    <h1 class="gradient-text">Base</h1>
+    <p>
       Resets, fonts, and themes — applied once across the entire application.
     </p>
-  </div>
+  </header>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">Purpose</h2>
+    <h2>Purpose</h2>
     <p>
       The <code>base/</code> directory contains foundational styles loaded once:
       resets, fonts, and theme variables. These are not reusable components —
@@ -65,7 +65,7 @@ const themesExample = `:root
   </section>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">_reset.sass</h2>
+    <h2>_reset.sass</h2>
     <p>
       Normalizes browser defaults so you start from a consistent baseline.
       Keep it minimal — only reset what you actually override.
@@ -74,7 +74,7 @@ const themesExample = `:root
   </section>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">_fonts.sass</h2>
+    <h2>_fonts.sass</h2>
     <p>
       Declares <code>@font-face</code> rules, sets the base <code>font-family</code>
       on <code>body</code>, and defines base typography scale.
@@ -83,7 +83,7 @@ const themesExample = `:root
   </section>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">_themes.sass</h2>
+    <h2>_themes.sass</h2>
     <p>
       Defines CSS custom properties for your design tokens.
       Using CSS variables here (rather than Sass variables) makes

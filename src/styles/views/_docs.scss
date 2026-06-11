@@ -5,14 +5,14 @@
   border-bottom: 1px solid $border;
   margin-bottom: 2rem;
 
-  &__title {
+  h1 {
     font-size: clamp(2.2rem, 5vw, 3.5rem);
     font-weight: 900;
     letter-spacing: -0.04em;
     margin-bottom: 0.75rem;
   }
 
-  &__description {
+  p {
     font-size: 1.1rem;
     color: $text-muted;
     max-width: 520px;
@@ -42,7 +42,7 @@
 
   padding-bottom: 1.25rem;
 
-  &__title {
+  h2 {
     position: relative;
     font-size: 1.7rem;
     font-weight: 800;
@@ -76,7 +76,7 @@
     }
   }
 
-  &__lead {
+  .lead {
     font-size: 1.05rem;
     color: $text-muted;
     margin-bottom: 1.5rem;
@@ -145,7 +145,7 @@
     border-color: $border-light;
   }
 
-  &__name {
+  .name {
     font-family: $font-mono;
     font-size: 0.85rem;
     font-weight: 700;
@@ -156,7 +156,7 @@
     background-clip: text;
   }
 
-  &__desc {
+  p {
     font-size: 0.88rem;
     color: $text-muted;
     line-height: 1.55;
@@ -179,7 +179,7 @@
   overflow: hidden;
   border: 1px solid $border;
 
-  &__label {
+  .label {
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
     font-weight: 700;
@@ -188,20 +188,20 @@
     border-bottom: 1px solid $border;
   }
 
-  &--less .naming-block__label  { color: $text-dim; background: rgba($text, 0.02); }
-  &--preferred .naming-block__label { color: $blue; background: rgba($blue, 0.06); }
+  &.less .label  { color: $text-dim; background: rgba($text, 0.02); }
+  &.preferred .label { color: $blue; background: rgba($blue, 0.06); }
 
-  &__note {
+  .note {
     font-weight: 400;
     opacity: 0.6;
     text-transform: none;
     letter-spacing: 0;
   }
 
-  &__part {
+  .part {
     padding: 0.65rem 1rem 0.75rem;
 
-    & + & {
+    & + .part {
       border-top: 1px solid $border;
     }
 
@@ -210,7 +210,7 @@
     }
   }
 
-  &__lang {
+  .lang {
     display: block;
     font-size: 0.65rem;
     font-weight: 700;
@@ -285,11 +285,11 @@
   top: 76px;
   padding: 2.5rem 0;
 
-  &__group {
+  .group {
     margin-bottom: 2rem;
   }
 
-  &__group-label {
+  .group-label {
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -299,11 +299,11 @@
     padding: 0 0.75rem;
   }
 
-  &__list {
+  ul {
     list-style: none;
   }
 
-  &__link {
+  a {
     display: block;
     font-size: 0.875rem;
     color: $text-muted;
@@ -328,26 +328,26 @@
   min-width: 0;
   padding: 2.5rem 0 5rem;
 
-  &__header {
+  header {
     margin-bottom: 1.75rem;
     padding-bottom: 1.75rem;
     border-bottom: 1px solid $border;
   }
 
-  &__title {
+  h1 {
     font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 900;
     letter-spacing: -0.04em;
     margin-bottom: 0.6rem;
   }
 
-  &__description {
+  header p {
     font-size: 1.05rem;
     color: $text-muted;
     line-height: 1.7;
   }
 
-  .docs-section:first-of-type .docs-section__title {
+  .docs-section:first-of-type h2 {
     border-top: none;
     padding-top: 0;
   }

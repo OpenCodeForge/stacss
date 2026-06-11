@@ -16,7 +16,7 @@
     0 20px 60px rgba(0, 0, 0, 0.5),
     0 0 80px rgba($blue, 0.04);
 
-  &__titlebar {
+  .titlebar {
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -25,28 +25,28 @@
     background: rgba($text, 0.02);
   }
 
-  &__dot {
+  .dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
 
-    &--red    { background: #FF5F57; }
-    &--yellow { background: #FEBC2E; }
-    &--green  { background: #28C840; }
+    &.red    { background: #FF5F57; }
+    &.yellow { background: #FEBC2E; }
+    &.green  { background: #28C840; }
   }
 
-  &__title {
+  .title {
     font-size: 0.8rem;
     color: $text-dim;
     font-family: $font-sans;
     margin-left: 0.5rem;
   }
 
-  &__body {
+  .body {
     padding: 1rem 1.75rem 1.25rem;
   }
 
-  &__root {
+  .root {
     display: flex;
     align-items: center;
     gap: 0.45rem;
@@ -63,7 +63,7 @@
     }
   }
 
-  &__list {
+  ul {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -74,7 +74,7 @@
     }
   }
 
-  &__item {
+  .item {
     display: flex;
     align-items: center;
     gap: 0.55rem;
@@ -90,27 +90,27 @@
     }
   }
 
-  &__connector {
+  .connector {
     color: $text-dim;
     user-select: none;
     flex-shrink: 0;
     letter-spacing: -0.03em;
   }
 
-  &__folder-icon {
+  .folder-icon {
     flex-shrink: 0;
     position: relative;
     top: -1px;
   }
 
-  &__folder-name {
+  .folder-name {
     font-weight: 600;
     letter-spacing: -0.01em;
     flex-shrink: 0;
     color: $text;
   }
 
-  &__comment {
+  .comment {
     flex: 1;
     text-align: right;
     color: $text-dim;

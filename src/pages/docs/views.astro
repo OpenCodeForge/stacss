@@ -24,15 +24,15 @@ const railsResult = `<body class="dashboard dashboard-index">`;
   title="Views"
   description="Styles specific to individual pages or screens."
 >
-  <div class="docs-article__header">
-    <h1 class="docs-article__title gradient-text">Views</h1>
-    <p class="docs-article__description">
+  <header>
+    <h1 class="gradient-text">Views</h1>
+    <p>
       Styles specific to individual pages or screens.
     </p>
-  </div>
+  </header>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">Purpose</h2>
+    <h2>Purpose</h2>
     <p>
       The <code>views/</code> directory contains styles that apply to a single page or screen.
       If a style is only used in one place, it belongs here — not in <code>components/</code>.
@@ -45,7 +45,7 @@ const railsResult = `<body class="dashboard dashboard-index">`;
   </section>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">Scoping with body class</h2>
+    <h2>Scoping with body class</h2>
     <p>
       Each view file should open with a scoped selector tied to that page.
       The recommended pattern is a class on <code>&lt;body&gt;</code>:
@@ -64,15 +64,15 @@ const railsResult = `<body class="dashboard dashboard-index">`;
       In Ruby on Rails, controller and action names are available directly in the layout:
     </p>
     <div class="code-block" style="margin: 1.25rem 0;">
-      <div class="code-block__header">
-        <span class="code-block__label">application.html.erb</span>
+      <div class="header">
+        <span class="label">application.html.erb</span>
       </div>
-      <div class="naming-block__part">
-        <span class="naming-block__lang">ERB</span>
+      <div class="part">
+        <span class="lang">ERB</span>
         <pre><code set:text={railsLayout}></code></pre>
       </div>
-      <div class="naming-block__part">
-        <span class="naming-block__lang">HTML</span>
+      <div class="part">
+        <span class="lang">HTML</span>
         <pre><code set:text={railsResult}></code></pre>
       </div>
     </div>

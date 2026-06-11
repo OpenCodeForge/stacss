@@ -14,7 +14,7 @@
     border-bottom-color: $border;
   }
 
-  &__inner {
+  .inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,7 +24,7 @@
     padding: 0 1.5rem;
   }
 
-  &__logo {
+  .logo {
     font-size: 1.1rem;
     font-weight: 800;
     letter-spacing: -0.03em;
@@ -38,22 +38,22 @@
     }
   }
 
-  &__links {
+  .links {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-  }
 
-  &__link {
-    font-size: 0.9rem;
-    color: $text-muted;
-    padding: 0.4rem 0.75rem;
-    border-radius: $radius;
-    transition: color 0.15s ease, background 0.15s ease;
+    a {
+      font-size: 0.9rem;
+      color: $text-muted;
+      padding: 0.4rem 0.75rem;
+      border-radius: $radius;
+      transition: color 0.15s ease, background 0.15s ease;
 
-    &:hover {
-      color: $text;
-      background: rgba($text, 0.05);
+      &:hover {
+        color: $text;
+        background: rgba($text, 0.05);
+      }
     }
   }
 }

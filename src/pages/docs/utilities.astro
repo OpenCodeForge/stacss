@@ -44,15 +44,15 @@ const usageExample = `@use '../utilities' as *
   title="Utilities"
   description="Variables and mixins that power the rest of your stylesheets."
 >
-  <div class="docs-article__header">
-    <h1 class="docs-article__title gradient-text">Utilities</h1>
-    <p class="docs-article__description">
+  <header>
+    <h1 class="gradient-text">Utilities</h1>
+    <p>
       Variables and mixins that power the rest of your stylesheets.
     </p>
-  </div>
+  </header>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">Purpose</h2>
+    <h2>Purpose</h2>
     <p>
       The <code>utilities/</code> directory contains Sass tools — variables and mixins —
       that produce no CSS output on their own. They must be <code>@use</code>'d in other
@@ -65,7 +65,7 @@ const usageExample = `@use '../utilities' as *
   </section>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">_variables.sass</h2>
+    <h2>_variables.sass</h2>
     <p>
       Centralizes all design tokens: colors, spacing scale, typography, shadows.
       Changing a value here propagates across the entire project.
@@ -74,7 +74,7 @@ const usageExample = `@use '../utilities' as *
   </section>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">_mixins.sass</h2>
+    <h2>_mixins.sass</h2>
     <p>
       Reusable Sass mixins for patterns you repeat across components and views.
       Keep them generic — no mixin should be tied to a specific component.
@@ -83,7 +83,7 @@ const usageExample = `@use '../utilities' as *
   </section>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">Usage</h2>
+    <h2>Usage</h2>
     <p>Import utilities at the top of any file that needs them:</p>
     <CodeBlock code={usageExample} label="components/_navbar.sass" />
   </section>

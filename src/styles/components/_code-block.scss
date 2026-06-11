@@ -7,7 +7,7 @@
   overflow: hidden;
   margin: 1.25rem 0;
 
-  &__header {
+  .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,7 +16,7 @@
     background: rgba($text, 0.02);
   }
 
-  &__label {
+  .label {
     font-size: 0.75rem;
     color: $text-dim;
     font-family: $font-mono;
@@ -25,7 +25,7 @@
     font-weight: 600;
   }
 
-  &__body {
+  .body {
     padding: 1.1rem 1.25rem;
     overflow-x: auto;
 
@@ -44,6 +44,31 @@
       .comment { color: $text-dim; font-style: italic; }
       .class   { color: $indigo; }
     }
+  }
+
+  .part {
+    padding: 0.65rem 1rem 0.75rem;
+
+    & + .part {
+      border-top: 1px solid $border;
+    }
+
+    pre {
+      margin: 0;
+      font-size: 0.83rem;
+      line-height: 1.7;
+      color: $text-muted;
+    }
+  }
+
+  .lang {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $text-dim;
+    margin-bottom: 0.35rem;
   }
 }
 

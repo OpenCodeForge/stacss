@@ -13,26 +13,28 @@
   border: none;
   text-decoration: none;
   white-space: nowrap;
+}
 
-  &--primary {
-    background: rgba($text, 0.08);
-    color: $text;
-    border: 1px solid rgba($text, 0.15);
+.btn-primary {
+  @extend .btn;
+  background: rgba($text, 0.08);
+  color: $text;
+  border: 1px solid rgba($text, 0.15);
 
-    &:hover {
-      background: rgba($text, 0.13);
-      border-color: rgba($text, 0.25);
-    }
+  &:hover {
+    background: rgba($text, 0.13);
+    border-color: rgba($text, 0.25);
   }
+}
 
-  &--ghost {
-    color: $text-muted;
-    border: 1px solid $border;
+.btn-ghost {
+  @extend .btn;
+  color: $text-muted;
+  border: 1px solid $border;
 
-    &:hover {
-      color: $text;
-      border-color: $border-light;
-      background: rgba($text, 0.03);
-    }
+  &:hover {
+    color: $text;
+    border-color: $border-light;
+    background: rgba($text, 0.03);
   }
 }

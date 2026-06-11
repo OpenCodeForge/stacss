@@ -6,15 +6,15 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   title="Naming Conventions"
   description="How STACSS approaches CSS selectors and class names."
 >
-  <div class="docs-article__header">
-    <h1 class="docs-article__title gradient-text">Naming Conventions</h1>
-    <p class="docs-article__description">
+  <header>
+    <h1 class="gradient-text">Naming Conventions</h1>
+    <p>
       How STACSS approaches CSS selectors and class names.
     </p>
-  </div>
+  </header>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">Prefer simple selectors</h2>
+    <h2>Prefer simple selectors</h2>
     <p>
       STACSS favors simple selectors and modern HTML structures.
       Avoid overly verbose naming systems whenever possible.
@@ -25,27 +25,27 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
     </p>
 
     <div class="naming-compare">
-      <div class="naming-block naming-block--less">
-        <div class="naming-block__label">BEM <span class="naming-block__note">— verbose</span></div>
-        <div class="naming-block__part">
-          <span class="naming-block__lang">HTML</span>
+      <div class="naming-block less">
+        <div class="label">BEM <span class="note">— verbose</span></div>
+        <div class="part">
+          <span class="lang">HTML</span>
           <pre><code>&lt;nav class="nav"&gt;
   &lt;a class="nav__item--is-active"&gt;</code></pre>
         </div>
-        <div class="naming-block__part">
-          <span class="naming-block__lang">CSS</span>
+        <div class="part">
+          <span class="lang">CSS</span>
           <pre><code>.nav__item--is-active</code></pre>
         </div>
       </div>
-      <div class="naming-block naming-block--preferred">
-        <div class="naming-block__label">Preferred</div>
-        <div class="naming-block__part">
-          <span class="naming-block__lang">HTML</span>
+      <div class="naming-block preferred">
+        <div class="label">Preferred</div>
+        <div class="part">
+          <span class="lang">HTML</span>
           <pre><code>&lt;nav class="nav"&gt;
   &lt;a class="active"&gt;</code></pre>
         </div>
-        <div class="naming-block__part">
-          <span class="naming-block__lang">CSS</span>
+        <div class="part">
+          <span class="lang">CSS</span>
           <pre><code>.nav a.active</code></pre>
         </div>
       </div>
@@ -55,6 +55,51 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
       Keep selector depth shallow. A selector like <code>.nav a.active</code> communicates
       both structure and state without requiring a naming system. Reserve longer class names
       for cases where context genuinely cannot be inferred from the DOM.
+    </p>
+  </section>
+
+  <section class="docs-section">
+    <h2>Component variants</h2>
+    <p>
+      For component variants, prefer a flat class name over a BEM modifier.
+      The variant class can stand alone or combine with the base class.
+    </p>
+
+    <div class="naming-compare">
+      <div class="naming-block less">
+        <div class="label">BEM <span class="note">— verbose</span></div>
+        <div class="part">
+          <span class="lang">HTML</span>
+          <pre><code>&lt;a class="btn btn--primary"&gt;
+&lt;a class="btn btn--ghost"&gt;</code></pre>
+        </div>
+        <div class="part">
+          <span class="lang">CSS</span>
+          <pre><code>.btn { /* base */ }
+.btn--primary { /* variant */ }
+.btn--ghost { /* variant */ }</code></pre>
+        </div>
+      </div>
+      <div class="naming-block preferred">
+        <div class="label">Preferred</div>
+        <div class="part">
+          <span class="lang">HTML</span>
+          <pre><code>&lt;a class="btn-primary"&gt;
+&lt;a class="btn-ghost"&gt;</code></pre>
+        </div>
+        <div class="part">
+          <span class="lang">CSS</span>
+          <pre><code>.btn { /* base */ }
+.btn-primary { /* variant */ }
+.btn-ghost { /* variant */ }</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      The same applies to state variants on blocks: <code>.naming-block.less</code> and
+      <code>.naming-block.preferred</code> are cleaner than
+      <code>.naming-block--less</code> and <code>.naming-block--preferred</code>.
     </p>
   </section>
 

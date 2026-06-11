@@ -12,7 +12,7 @@
     transform: translateY(-2px);
   }
 
-  &__icon {
+  .icon {
     width: 40px;
     height: 40px;
     border-radius: $radius;
@@ -25,14 +25,14 @@
     border: 1px solid rgba($blue, 0.15);
   }
 
-  &__title {
+  h3 {
     font-size: 1.05rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: $text;
   }
 
-  &__description {
+  p {
     font-size: 0.92rem;
     color: $text-muted;
     line-height: 1.65;

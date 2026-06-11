@@ -32,15 +32,15 @@ const buttonExample = `@use '../utilities' as *
   title="Components"
   description="Reusable UI elements shared across multiple views."
 >
-  <div class="docs-article__header">
-    <h1 class="docs-article__title gradient-text">Components</h1>
-    <p class="docs-article__description">
+  <header>
+    <h1 class="gradient-text">Components</h1>
+    <p>
       Reusable UI elements shared across multiple views.
     </p>
-  </div>
+  </header>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">Purpose</h2>
+    <h2>Purpose</h2>
     <p>
       The <code>components/</code> directory contains styles for UI elements that appear
       on more than one page. A button, a navbar, a form input, a modal — these all belong here.
@@ -51,7 +51,7 @@ const buttonExample = `@use '../utilities' as *
   </section>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">What belongs here</h2>
+    <h2>What belongs here</h2>
     <ul>
       <li>Buttons and links</li>
       <li>Navigation bars and menus</li>
@@ -67,7 +67,7 @@ const buttonExample = `@use '../utilities' as *
   </section>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">Example</h2>
+    <h2>Example</h2>
     <CodeBlock code={buttonExample} label="components/_button.sass" />
   </section>
 

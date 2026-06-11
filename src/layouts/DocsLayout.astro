@@ -21,7 +21,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
 </Layout>
 
 <script>
-  document.querySelectorAll('.docs-section__title').forEach(heading => {
+  document.querySelectorAll('.docs-section h2').forEach(heading => {
     const slug = heading.textContent
       .toLowerCase()
       .trim()

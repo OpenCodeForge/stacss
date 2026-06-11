@@ -8,11 +8,11 @@ const { code, label } = Astro.props;
 
 <div class="code-block">
   {label && (
-    <div class="code-block__header">
-      <span class="code-block__label">{label}</span>
+    <div class="header">
+      <span class="label">{label}</span>
     </div>
   )}
-  <div class="code-block__body">
+  <div class="body">
     <pre><code set:text={code}></code></pre>
   </div>
 </div>

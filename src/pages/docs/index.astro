@@ -6,15 +6,15 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   title="Introduction"
   description="What is STACSS and why it exists."
 >
-  <div class="docs-article__header">
-    <h1 class="docs-article__title gradient-text">Introduction</h1>
-    <p class="docs-article__description">
+  <header>
+    <h1 class="gradient-text">Introduction</h1>
+    <p>
       A lightweight CSS architecture convention for modern web applications.
     </p>
-  </div>
+  </header>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">What is STACSS?</h2>
+    <h2>What is STACSS?</h2>
     <p>
       STACSS is a CSS architecture convention. It defines where to put your stylesheets
       and how to name them — nothing more.
@@ -29,31 +29,31 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   </section>
 
   <section class="docs-section">
-    <h2 class="docs-section__title">Recommended structure</h2>
-    <p class="docs-section__lead">
+    <h2>Recommended structure</h2>
+    <p class="lead">
       STACSS organizes stylesheets into five directories, each with a clear purpose.
     </p>
 
     <div class="dir-grid">
       <a href="/docs/utilities" class="dir-card">
-        <div class="dir-card__name">utilities/</div>
-        <div class="dir-card__desc">Variables and mixins. No CSS output on their own.</div>
+        <div class="name">utilities/</div>
+        <p>Variables and mixins. No CSS output on their own.</p>
       </a>
       <a href="/docs/base" class="dir-card">
-        <div class="dir-card__name">base/</div>
-        <div class="dir-card__desc">Resets, fonts, and themes. Applied once across the whole app.</div>
+        <div class="name">base/</div>
+        <p>Resets, fonts, and themes. Applied once across the whole app.</p>
       </a>
       <a href="/docs/components" class="dir-card">
-        <div class="dir-card__name">components/</div>
-        <div class="dir-card__desc">Reusable UI elements shared across multiple views.</div>
+        <div class="name">components/</div>
+        <p>Reusable UI elements shared across multiple views.</p>
       </a>
       <a href="/docs/views" class="dir-card">
-        <div class="dir-card__name">views/</div>
-        <div class="dir-card__desc">Styles specific to individual pages or screens. Not shared elsewhere.</div>
+        <div class="name">views/</div>
+        <p>Styles specific to individual pages or screens. Not shared elsewhere.</p>
       </a>
       <a href="/docs/helpers" class="dir-card">
-        <div class="dir-card__name">helpers/</div>
-        <div class="dir-card__desc">Single-purpose utility classes used directly in HTML.</div>
+        <div class="name">helpers/</div>
+        <p>Single-purpose utility classes used directly in HTML.</p>
       </a>
     </div>
 
