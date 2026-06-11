@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import FileTree from '../components/FileTree.astro';
 import FeatureCard from '../components/FeatureCard.astro';
+import IllustrationSimplicity from '../components/IllustrationSimplicity.astro';
+import IllustrationReusability from '../components/IllustrationReusability.astro';
+import IllustrationAI from '../components/IllustrationAI.astro';
 ---
 
 <Layout title="STACSS — Simple CSS architecture for humans and AI.">
@@ -23,20 +26,23 @@ import FeatureCard from '../components/FeatureCard.astro';
     <div class="container">
       <div class="grid">
         <FeatureCard
-          icon="◆"
           title="Simplicity"
           description="Five directories. No configuration. No tooling required. You can understand the entire convention in under a minute."
-        />
+        >
+          <IllustrationSimplicity />
+        </FeatureCard>
         <FeatureCard
-          icon="⟳"
           title="Reusability"
           description="Clear separation between reusable components and view-specific styles prevents duplication and keeps your codebase clean."
-        />
+        >
+          <IllustrationReusability />
+        </FeatureCard>
         <FeatureCard
-          icon="⌘"
           title="AI Friendly"
           description="Predictable conventions let AI tools generate correctly placed, consistently named styles without needing custom instructions every time."
-        />
+        >
+          <IllustrationAI />
+        </FeatureCard>
       </div>
     </div>
   </section>

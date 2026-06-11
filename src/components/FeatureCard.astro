@@ -1,14 +1,15 @@
 ---
 interface Props {
-  icon: string;
   title: string;
   description: string;
 }
-const { icon, title, description } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <div class="feature-card">
-  <div class="icon">{icon}</div>
+  <div class="illustration">
+    <slot />
+  </div>
   <h3>{title}</h3>
   <p>{description}</p>
 </div>
