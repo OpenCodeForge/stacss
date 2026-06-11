@@ -1,18 +1,18 @@
 ---
 import DocsLayout from '../../layouts/DocsLayout.astro';
 
-const bemVariants = `.btn { /* base styles */ }
+const bemVariants = `.btn
+  // base styles
 
-.btn--primary {
-  /* variant styles */
-}`;
+.btn--primary
+  // variant styles`;
 
-const preferredVariants = `.btn { /* base styles */ }
+const preferredVariants = `.btn
+  // base styles
 
-.btn-primary {
-  @extend .btn;
-  /* variant styles */
-}`;
+.btn-primary
+  @extend .btn
+  // variant styles`;
 ---
 
 <DocsLayout
@@ -75,7 +75,7 @@ const preferredVariants = `.btn { /* base styles */ }
     <h2>Component variants</h2>
     <p>
       For component variants, prefer a single flat class name over BEM modifiers.
-      Use <code>@extend</code> in SCSS so the variant inherits base styles automatically —
+      Use <code>@extend</code> in Sass so the variant inherits base styles automatically —
       no need to put two classes on the HTML element.
     </p>
 
@@ -87,7 +87,7 @@ const preferredVariants = `.btn { /* base styles */ }
           <pre><code>&lt;a class="btn btn--primary"&gt;</code></pre>
         </div>
         <div class="part">
-          <span class="lang">SCSS</span>
+          <span class="lang">Sass</span>
           <pre><code set:text={bemVariants}></code></pre>
         </div>
       </div>
@@ -98,7 +98,7 @@ const preferredVariants = `.btn { /* base styles */ }
           <pre><code>&lt;a class="btn-primary"&gt;</code></pre>
         </div>
         <div class="part">
-          <span class="lang">SCSS</span>
+          <span class="lang">Sass</span>
           <pre><code set:text={preferredVariants}></code></pre>
         </div>
       </div>
