@@ -61,45 +61,47 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   <section class="docs-section">
     <h2>Component variants</h2>
     <p>
-      For component variants, prefer a flat class name over a BEM modifier.
-      The variant class can stand alone or combine with the base class.
+      For component variants, prefer a single flat class name over BEM modifiers.
+      Use <code>@extend</code> in Sass so the variant inherits base styles automatically —
+      no need to put two classes on the HTML element.
     </p>
 
     <div class="naming-compare">
       <div class="naming-block less">
-        <div class="label">BEM <span class="note">— verbose</span></div>
+        <div class="label">BEM <span class="note">— two classes in HTML</span></div>
         <div class="part">
           <span class="lang">HTML</span>
-          <pre><code>&lt;a class="btn btn--primary"&gt;
-&lt;a class="btn btn--ghost"&gt;</code></pre>
+          <pre><code>&lt;a class="btn btn--primary"&gt;</code></pre>
         </div>
         <div class="part">
-          <span class="lang">CSS</span>
-          <pre><code>.btn { /* base */ }
-.btn--primary { /* variant */ }
-.btn--ghost { /* variant */ }</code></pre>
+          <span class="lang">Sass</span>
+          <pre><code>.btn
+  // base styles
+.btn--primary
+  // variant styles</code></pre>
         </div>
       </div>
       <div class="naming-block preferred">
-        <div class="label">Preferred</div>
+        <div class="label">Preferred <span class="note">— one class in HTML</span></div>
         <div class="part">
           <span class="lang">HTML</span>
-          <pre><code>&lt;a class="btn-primary"&gt;
-&lt;a class="btn-ghost"&gt;</code></pre>
+          <pre><code>&lt;a class="btn-primary"&gt;</code></pre>
         </div>
         <div class="part">
-          <span class="lang">CSS</span>
-          <pre><code>.btn { /* base */ }
-.btn-primary { /* variant */ }
-.btn-ghost { /* variant */ }</code></pre>
+          <span class="lang">Sass</span>
+          <pre><code>.btn
+  // base styles
+  &-primary
+    @extend .btn
+    // variant styles</code></pre>
         </div>
       </div>
     </div>
 
     <p>
-      The same applies to state variants on blocks: <code>.naming-block.less</code> and
-      <code>.naming-block.preferred</code> are cleaner than
-      <code>.naming-block--less</code> and <code>.naming-block--preferred</code>.
+      <code>&-primary</code> nested inside <code>.btn</code> makes the relationship
+      between base and variant explicit in the stylesheet. <code>@extend .btn</code>
+      ensures the variant inherits every base rule — no duplication, no extra class in HTML.
     </p>
   </section>
 
