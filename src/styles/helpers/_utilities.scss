@@ -1,0 +1,26 @@
+@use '../utilities' as *;
+
+.gradient-text {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container--docs {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-divider {
+  height: 1px;
+  background: $border;
+  margin: 0;
+}

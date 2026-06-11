@@ -1,0 +1,57 @@
+@use '../utilities' as *;
+
+.code-block {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  margin: 1.25rem 0;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid $border;
+    background: rgba($text, 0.02);
+  }
+
+  &__label {
+    font-size: 0.75rem;
+    color: $text-dim;
+    font-family: $font-mono;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  &__body {
+    padding: 1.1rem 1.25rem;
+    overflow-x: auto;
+
+    pre {
+      margin: 0;
+    }
+
+    code {
+      font-size: 0.83rem;
+      line-height: 1.8;
+      color: $text-muted;
+      white-space: pre;
+
+      .keyword { color: $pink; }
+      .string  { color: $blue; }
+      .comment { color: $text-dim; font-style: italic; }
+      .class   { color: $indigo; }
+    }
+  }
+}
+
+:not(pre) > code {
+  background: rgba($blue, 0.08);
+  border: 1px solid rgba($blue, 0.15);
+  color: $blue;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
