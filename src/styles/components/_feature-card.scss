@@ -16,10 +16,12 @@
   .illustration {
     margin: 0 -1.75rem 1.5rem;
     border-bottom: 1px solid $border;
+    aspect-ratio: 320 / 115;
+    overflow: hidden;
 
     svg {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
     }
   }
