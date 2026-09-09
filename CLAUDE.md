@@ -14,7 +14,7 @@ There is no test suite and no linter configured.
 
 ## Architecture
 
-This is an **Astro 4 static site** — the documentation website for the STACSS CSS architecture convention. It deploys to [stacss.dev](https://stacss.dev) via Netlify (`netlify.toml`).
+This is an **Astro 4 static site** — the documentation website for the STACSS CSS architecture convention. Deployment to [stacss.dev](https://stacss.dev) is configured for Railway (`railway.json`): a multi-stage `Dockerfile` builds with Node.js 22 and serves `dist/` with Caddy on Railway's `PORT`. See the README for basic development and deployment commands.
 
 ### Layout hierarchy
 

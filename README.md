@@ -1,28 +1,41 @@
 # STACSS
 
-Documentation website for the STACSS CSS architecture convention.
+[stacss.dev](https://stacss.dev) · Node.js 22
 
-**[stacss.dev](https://stacss.dev)**
-
----
-
-## Getting started
+## 📦 Install
 
 ```bash
-npm install
+# Clean Install (reinstalls dependencies using exact versions from package-lock.json)
+npm ci
+```
+
+## 🛠️ Develop
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:4321](http://localhost:4321) in your browser.
+## 🧪 Test locally
 
-## Build
+Build and preview the site (manual testing).
 
 ```bash
 npm run build
+npm run preview
 ```
 
-## Stack
+## 🚀 Deploy to Railway
 
-- [Astro](https://astro.build) — static site generator
-- [Sass](https://sass-lang.com) — CSS preprocessor
-- [Netlify](https://netlify.com) — hosting
+One-time setup: install the CLI, sign in, and select your Railway project/service.
+
+```bash
+npm install -g @railway/cli
+railway login
+railway link
+```
+
+Deploy:
+
+```bash
+railway up
+```
